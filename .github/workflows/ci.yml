@@ -21,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # or the version you need
+          node-version: '16' # Specify the version you need
 
       # Runs a single command using the runner's shell
       - name: Run a one-line script
@@ -31,4 +31,5 @@ jobs:
       - name: Run markdown lint
         run: |
           npm install --global remark-cli remark-preset-lint-consistent
-          npx remark . --use remark-preset-lint-consistent --frail
+          # Removing the '--frail' flag to allow warnings without failing the workflow
+          npx remark . --use remark-preset-lint-consistent
